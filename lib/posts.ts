@@ -26,8 +26,9 @@ export function getSortedPostsData() {
       ...matterResult.data,
     };
   });
+
   // Sort posts by date
-  return allPostsData.sort((a, b) => {
+  return allPostsData.sort((a: any, b: any) => {
     if (a.date < b.date) {
       return 1;
     } else {
@@ -74,8 +75,6 @@ export async function getPostData(id) {
     .process(matterResult.content);
 
   const contentHtml = processedContent.toString();
-
-  console.log(contentHtml);
 
   // Combine the data with the id and contentHtml
   return {
